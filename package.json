@@ -1,6 +1,6 @@
 {
   "name": "markedejs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Renders markdown into HTML and applies EJS templating.",
   "main": "index.js",
   "repository": {
