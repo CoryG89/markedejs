@@ -25,6 +25,7 @@ module.exports = new (function () {
             var html = marked(string);
             html = html.replace(/&lt;/g, '<');
             html = html.replace(/&gt;/g, '>');
+            html = html.replace(/&quot;/g, '"');
             html = ejs.render(html, options);
             callback(null, html);
         } catch (error) {
