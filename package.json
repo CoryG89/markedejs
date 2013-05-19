@@ -1,13 +1,17 @@
 {
   "name": "markedejs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Renders markdown into HTML and applies EJS templating.",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/CoryG89/markedejs.git"
   },
-  "author": "Cory Gross",
+  "author": {
+    "name": "Cory Gross",
+    "email": "CoryG89@gmail.com",
+    "url": "http://coryg89.github.io"
+  },
   "license": "MIT",
   "readmeFilename": "README.md",
   "gitHead": "1f63ed847830c65f6dca4cd768d0d50280e8ce16",

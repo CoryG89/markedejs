@@ -11,9 +11,10 @@ module.exports = new (function () {
     marked.setOptions({
         gfm: true,
         tables: true,
-        breaks: true,
+        smartLists: true,
+        breaks: false,
         pedantic: false,
-        smartLists: true
+        sanitize: false
     });
 
     this.setMarkdownOptions = function (options) {
