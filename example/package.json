@@ -1,0 +1,19 @@
+{
+  "name": "markedejs-example",
+  "description": "Examples for using the markedejs module",
+  "version": "0.0.1",
+  "author": {
+    "name": "Cory Gross",
+    "email": "CoryG89@gmail.com",
+    "url": "http://coryg89.github.io"
+  },
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/CoryG89/markedejs.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "markedejs": "0.0.x",
+    "express": "3.2.x"
+  }
+}

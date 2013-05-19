@@ -1,6 +1,6 @@
 {
   "name": "markedejs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Renders markdown into HTML and applies EJS templating.",
   "main": "index.js",
   "repository": {
@@ -16,7 +16,7 @@
   "readmeFilename": "README.md",
   "gitHead": "1f63ed847830c65f6dca4cd768d0d50280e8ce16",
   "dependencies": {
-    "ejs": "*",
-    "marked": "*"
+    "ejs": "0.8.x",
+    "marked": "0.2.x"
   }
 }
