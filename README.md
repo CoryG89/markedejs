@@ -7,40 +7,41 @@ A node module for rendering markdown to HTML and applying EJS templating.
 
 The `markedejs` module depends only on two other modules for its functionality:
 
-  * [**chjj/marked**][1] -- A full-featured markdown parser and compiler,
+  * [**`chjj/marked`**][1] -- A full-featured markdown parser and compiler,
     written in JavaScript.
-  * [**visionmedia/ejs**][2] -- Embedded JavaScript template engine.
+  * [**`visionmedia/ejs`**][2] -- Embedded JavaScript template engine.
 
 ## What is it?
 
 The `markedejs` module is simply a way to combine the two above technologies
 in order to be able to use EJS templating for markdown documents. It also makes
 this easy to use in the [**Express web framework**][3] for Node.JS (available at
-[**visionmedia/express**][4]).
+[**`visionmedia/express`**][4]).
 
 ## Example
 
 There are two included sample templates:
 
-  - [**`simple.md`**][9] - A very simple template showing basic usage with EJS.
-  - [**`template.md`**][8] - A full featured template with EJS includes.
+  - [**`simple.md`**][5] - A very simple template showing basic usage with EJS.
+  - [**`template.md`**][6] - A full featured template with EJS includes.
 
 ## Build
 
-In order to build the examples you'll need to take the following steps, this
-assumes you already have Node.JS and Git already installed. If you do not have
-git installed you may download the [compressed source from GitHub][5]:
+In order to build the example apps you'll need to take the following steps. This
+assumes you already have [**Node.JS**][7] and [**Git**][8] already installed.
+If you do not have git installed you may download the
+[compressed source from GitHub][9] and skip the first line of the following:
 
     $ git clone https://github.com/CoryG89/markedejs.git
     $ cd markedejs/example
     $ npm install
 
 This will install the dependencies for the samples. Now in order to run the
-basic Node HTTP example [**`basic.js`**][6] simply use the following command:
+basic Node HTTP example [**`basic.js`**][10] simply use the following command:
 
     $ node basic
 
-Or in order to instead run [**`app.js`**][7], the example example using the
+Or in order to instead run [**`app.js`**][11], the example example using the
 Express framework, then use the following command:
 
     $ node app
@@ -89,7 +90,7 @@ This means that you can call `render('template')` instead of
 
 In order to use EJS includes without having them surrounded by `<p>` tags,
 surround your includes with a custom `<nop>` tags which are removed before
-being passed to EJS, you may then use [**includes in your templates**][8] in
+being passed to EJS, you may then use [**includes in your templates**][6] in
 order to include arbitrary HTML files in your template like so:
 
 #### Example Template
@@ -143,8 +144,10 @@ callback.
 [2]: https://github.com/visionmedia/ejs
 [3]: http://expressjs.com
 [4]: https://github.com/visionmedia/express
-[5]: https://github.com/CoryG89/markedejs
-[6]: example/basic.js
-[7]: example/app.js
-[8]: https://raw.github.com/CoryG89/markedejs/master/example/views/template.md
-[9]: https://raw.github.com/CoryG89/markedejs/master/example/views/simple.md
+[5]: https://raw.github.com/CoryG89/markedejs/master/example/views/simple.md
+[6]: https://raw.github.com/CoryG89/markedejs/master/example/views/template.md
+[7]: http://nodejs.org/
+[8]: http://git-scm.com/
+[9]: https://github.com/CoryG89/markedejs
+[10]: example/basic.js
+[11]: example/app.js
