@@ -30,12 +30,12 @@ git installed you may download the [compressed source from GitHub][5]:
     $ npm install
 
 This will install the dependencies for the samples. Now in order to run the
-[basic Node HTTP example][6] simply run the following command:
+basic Node HTTP example [**`basic.js`**][6] simply use the following command:
 
     $ node basic
 
-Or in order to run the sample using the Express web framework, instead run the
-the following command:
+Or in order to instead run [**`app.js`**][7], the example example using the
+Express framework, then use the following command:
 
     $ node app
 
@@ -83,12 +83,11 @@ This means that you can call `render('template')` instead of
 
 In order to use EJS includes without having them surrounded by `<p>` tags,
 surround your includes with a custom `<nop>` tags which are removed before
-being passed to EJS, you may then use [**includes in your templates**][7] in
+being passed to EJS, you may then use [**includes in your templates**][8] in
 order to include arbitrary HTML files in your template like so:
 
 #### Example Template
 
-    ```
     <nop><% include header.html %></nop>
     
     ## <%= header %>
@@ -96,22 +95,18 @@ order to include arbitrary HTML files in your template like so:
     Some more markdown content or something.
 
     <nop><% include footer.html %></nop>
-    ```
 
 This template would be rendered by the module into the following HTML
 
-    ```
     <% include header.html %>
     <h2><%= header %></h2>
     <p>Some more markdown content or something.</p>
     <% include footer.html %>
-    ```
 
 If you didn't include the `<nop>` tags, there would be `<p>` tags surrounding
 your includes in the HTML output. If we assume that `header.html` and 
 `footer.html` contain the following:
 
-    ```
     <!-- header.html -->
     <html>
       <head>
@@ -122,14 +117,12 @@ your includes in the HTML output. If we assume that `header.html` and
     <!-- footer.html -->
        </body>
     </html>
-    ```
 
 Then the HTML output will be passed to EJS, along with the two referenced
 variables `header` and `title` if they are included with the original
 markedejs `render` call and we will get the following HTML returned in our
 callback.
 
-    ```
     <html>
       <head>
          <title>Your passed in title</title>
@@ -139,7 +132,6 @@ callback.
         <p>Some more markdown content or something.</p>
       </body>
     </html>
-    ```
 
 [1]: https://github.com/chjj/marked
 [2]: https://github.com/visionmedia/ejs
@@ -149,3 +141,4 @@ callback.
 [6]: example/basic.js
 [7]: example/app.js
 [8]: example/views/template.md
+[9]: example/basic.js
