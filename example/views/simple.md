@@ -1,5 +1,3 @@
-<nop><% include header.html %></nop>
-
 <%= site.title %>
 =======================
 
@@ -9,8 +7,6 @@ This project was created by <%= author.name %>. My website is
 located at the url [<%= author.url %>]().
 
 ## <%= header %>
-
-![Markdown Logo](img/mdlogo.png)
 
 Hey <%= user.name %>! This is a test template for the `markedejs` module. We
 can use markdown and EJS together for some pretty awesome results. Includes
@@ -38,5 +34,3 @@ paragraph if you pass in `true` for the `showFooter` flag.
 <% if (showFooter !== undefined && showFooter === true) { %>
   <%= footer %>
 <% } %>
-
-<nop><% include footer.html %></nop>

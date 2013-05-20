@@ -10,13 +10,14 @@ function requestHandler (req, res) {
 
     /** Define locals to be passed into the sample template */
     var locals = {
-        header: 'My Awesome Markdown Template',
+        title: 'TestTemplate',
+        header: 'Markdown Is Awesome!!',
         supplies: ['mop', 'broom', 'dustpan'],
         footer: 'This is some footer text',
         showFooter: false,
         user: {
             username: 'SomeUser',
-            name : 'you',
+            name: 'you',
             stars: 64
         },
         site: {
@@ -27,7 +28,11 @@ function requestHandler (req, res) {
                 name: 'Cory Gross',
                 email: 'CoryG89@gmail.com',
                 url: 'http://coryg89.github.io'
-        }
+        },
+
+        /** This line is needed to point EJS at your views directory in order
+            to support compile time includes */
+        filename: __dirname + '/views/*.md'
     };
 
     function renderHTML (err, html) {
@@ -45,7 +50,7 @@ function requestHandler (req, res) {
         }
     }
 
-    markedejs.renderFile(__dirname + '/views/template.md', locals, renderHTML); 
+    markedejs.renderFile(__dirname + '/views/simple.md', locals, renderHTML); 
 }
 
 http.createServer(requestHandler).listen(PORT, IP, function () {

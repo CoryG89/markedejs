@@ -18,6 +18,7 @@ module.exports = new (function () {
         sanitize: false
     });
 
+    /** Helper method to debug html output of marked engine */
     var debug = function (html) {
         var sep = '----------------------------------------------------------';
         console.log('\n' + sep);
@@ -27,6 +28,16 @@ module.exports = new (function () {
         console.log(sep + '\n');
     };
 
+    /** Helper method to replace custom <nop></nop> tags for escaping the
+        marked engine */
+    var replaceNops = function (html) {
+        return html
+            .replace(/<nop>/g, '')
+            .replace(/<\/nop>/g, '');
+    };
+
+    /** Unescapes the following symbols, initially these are escaped by the
+        marked engine */
     var unescape = function (html) {
         return html
             .replace(/&lt;/g, '<')
@@ -36,13 +47,16 @@ module.exports = new (function () {
             .replace(/&amp;/g, '&');
     };
 
+    /** Public wrapper method for setting marked engine options. */
     this.setMarkdownOptions = function (options) {
         marked.setOptions(options);
     };
 
+    /** Renders a string of markdown using EJS templating */
     this.render = function (string, options, callback) {
         try {
             var html = marked(string);
+            html = replaceNops(html);
             html = unescape(html);
             if (self.DEBUG) debug(html);
             html = ejs.render(html, options);
@@ -53,6 +67,7 @@ module.exports = new (function () {
         }
     };
 
+    /** Renders a markdown file using EJS templating */
     this.renderFile = function (path, options, callback) {
         fs.readFile(path, 'utf8', function (error, string) {
             if (error) return callback(error, null);
@@ -60,5 +75,6 @@ module.exports = new (function () {
         });
     };
 
+    /** Export for the Express web framework */
     this.__express = this.renderFile;
 })();

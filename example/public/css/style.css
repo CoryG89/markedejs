@@ -1,0 +1,12 @@
+body {
+    color: #222;
+}
+
+li {
+    margin-bottom: 3px;
+}
+
+img {
+    width: 200px;
+    height: auto;
+}

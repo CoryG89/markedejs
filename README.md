@@ -79,6 +79,68 @@ engine in Express.
 This means that you can call `render('template')` instead of
  `render('template.md')`.
 
+## Custom `<nop>` tag
+
+In order to use EJS includes without having them surrounded by `<p>` tags,
+surround your includes with a custom `<nop>` tags which are removed before
+being passed to EJS, you may then use [**includes in your templates**][7] in
+order to include arbitrary HTML files in your template like so:
+
+#### Example Template
+
+    ```
+    <nop><% include header.html %></nop>
+    
+    ## <%= header %>
+
+    Some more markdown content or something.
+
+    <nop><% include footer.html %></nop>
+    ```
+
+This template would be rendered by the module into the following HTML
+
+    ```
+    <% include header.html %>
+    <h2><%= header %></h2>
+    <p>Some more markdown content or something.</p>
+    <% include footer.html %>
+    ```
+
+If you didn't include the `<nop>` tags, there would be `<p>` tags surrounding
+your includes in the HTML output. If we assume that `header.html` and 
+`footer.html` contain the following:
+
+    ```
+    <!-- header.html -->
+    <html>
+      <head>
+        <title><%= title %></title>
+      </head>
+      <body>
+
+    <!-- footer.html -->
+       </body>
+    </html>
+    ```
+
+Then the HTML output will be passed to EJS, along with the two referenced
+variables `header` and `title` if they are included with the original
+markedejs `render` call and we will get the following HTML returned in our
+callback.
+
+    ```
+    <html>
+      <head>
+         <title>Your passed in title</title>
+      </head>
+      <body>
+        <h2>Your passed in header</h2>
+        <p>Some more markdown content or something.</p>
+      </body>
+    </html>
+    ```
+
 [1]: https://github.com/chjj/marked
 [2]: https://github.com/visionmedia/ejs
 [3]: http://expressjs.com
@@ -86,3 +148,4 @@ This means that you can call `render('template')` instead of
 [5]: https://github.com/CoryG89/markedejs
 [6]: example/basic.js
 [7]: example/app.js
+[8]: example/views/template.md

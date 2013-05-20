@@ -6,6 +6,7 @@ var path = require('path');
 var express = require('express');
 var markedejs = require('markedejs');
 markedejs.DEBUG = true;
+
 /** Create our express app object */
 var app = express();
 
@@ -25,6 +26,7 @@ app.configure(function () {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
+    app.use(express.static(__dirname + '/public'));
 });
 
 /** Define app-level locals, global variables available to all views */
@@ -37,16 +39,22 @@ app.locals({
         name: 'Cory Gross',
         email: 'CoryG89@gmail.com',
         url: 'http://coryg89.github.io'
-    }
+    },
+
+    /** The following is needed to point EJS at our views directory in order
+        to use includes. */
+    filename: app.get('views') + '/*'
 });
 
 /** Define route handling */
 app.get('/', function (req, res) {
     
-    res.render('template.md', {
+    var filename = 'template.md';
 
+    res.render(filename, {
         /** Define response-level locals, only available to this view */
-        header: 'My Awesome Markdown Template',
+        title: 'TestTemplate',
+        header: 'Markdown Is Awesome!!',
         supplies: ['mop', 'broom', 'dustpan'],
         footer: 'This is some footer text',
         showFooter: false,
@@ -54,8 +62,7 @@ app.get('/', function (req, res) {
             username: 'SomeUser',
             name : 'you',
             stars: 64
-        }
-
+        },
     });
 });
 
