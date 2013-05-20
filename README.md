@@ -1,7 +1,7 @@
 markedejs
 =========
 
-A node moudule for rendering markdown into HTML and applying EJS templating.
+A node module for rendering markdown to HTML and applying EJS templating.
 
 ## Dependencies
 
