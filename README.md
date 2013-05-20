@@ -9,7 +9,6 @@ The `markedejs` module depends only on two other modules for its functionality:
 
   * [**chjj/marked**][1] -- A full-featured markdown parser and compiler,
     written in JavaScript.
-
   * [**visionmedia/ejs**][2] -- Embedded JavaScript template engine.
 
 ## What is it?
@@ -18,6 +17,13 @@ The `markedejs` module is simply a way to combine the two above technologies
 in order to be able to use EJS templating for markdown documents. It also makes
 this easy to use in the [**Express web framework**][3] for Node.JS (available at
 [**visionmedia/express**][4]).
+
+## Example
+
+There are two included sample templates:
+
+  - [**`simple.md`**][9] - A very simple template showing basic usage with EJS.
+  - [**`template.md`**][8] - A full featured template with EJS includes.
 
 ## Build
 
@@ -140,5 +146,5 @@ callback.
 [5]: https://github.com/CoryG89/markedejs
 [6]: example/basic.js
 [7]: example/app.js
-[8]: example/views/template.md
-[9]: example/basic.js
+[8]: https://raw.github.com/CoryG89/markedejs/master/example/views/template.md
+[9]: https://raw.github.com/CoryG89/markedejs/master/example/views/simple.md
