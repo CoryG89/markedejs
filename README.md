@@ -58,18 +58,41 @@ You may access the module by importing it into your `app.js`:
     var markedejs = require('markedejs');
 
     var users = [
-		 { id: 0, name: 'Bobby Jo', email: 'JoJoBinks@mycorona.com' },
-        { id: 1, name: 'Jason Dirk', email: 'JJDirk@yoohoo.com' },
+		 { id: 0, name: 'Bobby Jo', email: 'jjb@example.com' },
+        { id: 1, name: 'Jason Dirk', email: 'jd@example.com' },
     ];
 
     markedejs.render(someMarkdownText, users, function (err, html) {
         // Do something with rendered HTML
     });
 
-     markedejs.renderFile(someMarkdownText, users, function (err, html) {
+     markedejs.renderFile('markdown.md', users, function (err, html) {
         // Do something with rendered HTML
     });
 
+If `markdown.md` contained the following:
+
+    ## MyAwesomeSite
+
+    ### Users List
+     
+    Here is a list of the users on my awesome site:
+    
+    <ul>
+      <% for (var i = 0; i < users.length; i++) { %>
+        <li>**User ID:** <%= user[i].id %> -- **Email:** <%= user[i].email %><li>
+      <% } %>
+    </ul>
+
+Then the HTML rendered in the callback would be the following:
+
+    <h2>MyAwesomeSite</h2>
+    <h3>Users List</h3>
+    <p>Here is a list of the users on my awesome site:</p>
+    <ul>
+      <li><strong>User ID:</strong> 0 -- <strong>Email:</strong> jjb@example.com</li>
+      <li><strong>User ID:</strong> 1 -- <strong>Email:</strong> jd@example.com</li>
+    </ul>
 ## Express
 
 It is easy to use `markedejs` with Express as a view engine. Simply do the
