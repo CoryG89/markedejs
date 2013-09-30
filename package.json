@@ -13,8 +13,6 @@
     "url": "http://coryg89.github.io"
   },
   "license": "MIT",
-  "readmeFilename": "README.md",
-  "gitHead": "1f63ed847830c65f6dca4cd768d0d50280e8ce16",
   "dependencies": {
     "ejs": "0.8.x",
     "marked": "0.2.x"
