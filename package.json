@@ -1,18 +1,26 @@
 {
   "name": "markedejs",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "Renders markdown into HTML and applies EJS templating.",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/CoryG89/markedejs.git"
-  },
+  "keywords": ["Templates", "Markdown", "EJS"],
   "author": {
     "name": "Cory Gross",
     "email": "CoryG89@gmail.com",
     "url": "http://coryg89.github.io"
   },
-  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CoryG89/markedejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CoryG89/markedejs/issues",
+    "email": "CoryG89@gmail.com"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/CoryG89/markedejs/blob/master/LICENSE.md"
+  },
   "dependencies": {
     "ejs": "0.8.x",
     "marked": "0.2.x"
